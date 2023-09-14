@@ -1,0 +1,11 @@
+{
+  "name": "codigofuente",
+  "version": "1.0.0",
+  "description": "![Expressjs](https://miro.medium.com/v2/resize:fit:1400/1*f7ztMaMM0etsFHpEfkdiwA.png)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "IralaCristian",
+  "license": "ISC"
+}
