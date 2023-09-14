@@ -72,7 +72,19 @@ ctrl.actualizarPublicacion = async (req, res) => {
 
 // Controlador para eliminar una publicación
 ctrl.eliminarPublicacion = async (req, res) => {
-
+    const { id } = req.params;
+    try {
+        const publicacion = await Publicacion.findByPk(id);
+        await publicacion.destroy();
+        return res.json({
+            msg: 'Publicación eliminada con éxito!'
+        })
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).json({
+            msg: "Error al eliminar Publicación!"
+        })
+    }
 };
 
 
