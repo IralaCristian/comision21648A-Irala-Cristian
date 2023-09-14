@@ -13,6 +13,7 @@ sequelize.authenticate()
     .catch(err => console.log('Error al conectar BD: ', err))
 
 const port = process.env.PORT || 3000;
+const host = process.env.DB_HOST;
 const app = express()
 
 // Middlewares
@@ -33,4 +34,4 @@ app.use((req, res, next) => {
 })
 
 
-app.listen(port, () => console.log(`Servidor corriendo en http://localhost:${port}`))
+app.listen(port, () => console.log(`Servidor corriendo en http://${host}:${port}`))
