@@ -1,11 +1,14 @@
 
 
-const mostrarPublicacion = (publicacion, elementoHtml) => {
+const mostrarPublicacion = (publicacion) => {
 
-    console.log(publicacion)
-    console.log(publicacion.titulo)
-    document.querySelector("#titulo").value= publicacion.titulo
-    //document.getElementById("titulo").innerHTML= publicacion.titulo
+    //carga de datos de la publicación a editar en el formulario editar_publicacion
+    const {id, titulo, detalle, url_imagen, fecha} = publicacion
+    document.querySelector("#titulo").value= titulo
+    document.querySelector("#detalle").value= detalle
+    document.querySelector("#url_imagen").value= url_imagen
+    document.querySelector("#fecha").value= fecha
+    document.querySelector("#id").value= id
     
 }
 
@@ -27,6 +30,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     const id= urlParams.get('id');
     
     const publicacion = await obtenerPublicacion(id)
-    const main = document.querySelector('#editar_publicacion')
-    mostrarPublicacion(publicacion, main)
+    mostrarPublicacion(publicacion)
 })
+
+//referencio al formulario en la constante form para luego implementar sus eventos
+const formEditar = document.querySelector("#editar_publicacion")
+
+//listener para el evento que desencadenara la actualización de la publicación
+formEditar.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+        id: document.querySelector('#id').value,
+        titulo: document.querySelector('#titulo').value,
+        detalle: document.querySelector('#detalle').value,
+        url_imagen: document.querySelector('#url_imagen').value,
+        fecha: document.querySelector('#fecha').value,
+    }
+
+
+    // Enviar los datos al servidor para actualizar la nueva publicación
+    const respuesta = await fetch('/publicacion/'+ data.id, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+
+    const datos = await respuesta.json()
+    console.log(datos);
+
+    alert(datos.msg)
+
+})
+
+
