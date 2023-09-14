@@ -1,4 +1,15 @@
 
+//obtiene los datos que estan en los valores del formulario ediat_publicacion
+const obtenerDatosDelForm = () => {
+    return data = {
+        id: document.querySelector('#id').value,
+        titulo: document.querySelector('#titulo').value,
+        detalle: document.querySelector('#detalle').value,
+        url_imagen: document.querySelector('#url_imagen').value,
+        fecha: document.querySelector('#fecha').value,
+    }
+}
+
 
 const mostrarPublicacion = (publicacion) => {
 
@@ -40,16 +51,9 @@ const formEditar = document.querySelector("#editar_publicacion")
 formEditar.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const data = {
-        id: document.querySelector('#id').value,
-        titulo: document.querySelector('#titulo').value,
-        detalle: document.querySelector('#detalle').value,
-        url_imagen: document.querySelector('#url_imagen').value,
-        fecha: document.querySelector('#fecha').value,
-    }
+    const data = obtenerDatosDelForm()
 
-
-    // Enviar los datos al servidor para actualizar la nueva publicación
+    // Enviar los datos al servidor para actualizar la publicación
     const respuesta = await fetch('/publicacion/'+ data.id, {
         method: "PUT",
         headers: {
@@ -62,6 +66,30 @@ formEditar.addEventListener('submit', async (e) => {
     console.log(datos);
 
     alert(datos.msg)
+
+})
+
+
+formEditar.addEventListener('reset', async (e) => {
+    e.preventDefault();
+
+    const data = obtenerDatosDelForm()
+
+    // Enviar los datos al servidor para eliminar la publicación
+    const respuesta = await fetch('/publicacion/'+ data.id, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+
+    const datos = await respuesta.json()
+    console.log(datos);
+
+    alert(datos.msg)
+
+    location.href= "/"
 
 })
 
