@@ -20,6 +20,7 @@ const mostrarPublicacion = (publicacion) => {
     document.querySelector("#url_imagen").value= url_imagen
     document.querySelector("#fecha").value= fecha
     document.querySelector("#id").value= id
+    document.querySelector("#imagenMuestra").setAttribute('src', url_imagen)
     
 }
 
@@ -64,8 +65,10 @@ formEditar.addEventListener('submit', async (e) => {
 
     const datos = await respuesta.json()
     console.log(datos);
-
+    //carga la nueva imagen en el cuadro de muestra
+    document.querySelector("#imagenMuestra").setAttribute('src', data.url_imagen)
     alert(datos.msg)
+
 
 })
 

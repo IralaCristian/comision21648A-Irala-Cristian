@@ -6,7 +6,7 @@ const mostrarPublicaciones = (publicaciones, elementoHtml) => {
             <section class="d-flex gap-2">
                 <img src="${pub.url_imagen}" class="rounded" height="200" width="200" alt="${pub.titulo}" >
                 <div class="d-flex flex-column justify-content-between">
-                    <a href='/editar?id=${pub.id}'>${pub.titulo}</a>
+                    <a href='/editar?id=${pub.id}' class="fs-3">${pub.titulo}</a>
                     <p>${pub.detalle}</p>
                     <p>${pub.fecha}</p>
                 </div>

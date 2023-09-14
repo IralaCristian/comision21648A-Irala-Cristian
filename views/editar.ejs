@@ -8,38 +8,47 @@
             <h1 class="text-center">Editar Publicación</h1>
         </div>
     </div>
-    <div class="row col-md-5 mx-auto">
+    <div class="row mt-4">
+        <div class="col-md-5 mx-auto gap-2">
+            <img src="" class="rounded" height="300" width="300" alt="" id="imagenMuestra">
+        </div>
+        <div class="col-md-7 mx-auto gap-2">
 
-        <form action="" id="editar_publicacion">
+            <form action="" id="editar_publicacion">
 
-            <div class="mb-3">
-                <input type="text" class="form-control" id="titulo" >
-            </div>
-            <div class="form-floating mb-3">
-                <textarea class="form-control"  id="detalle"
-                    style="height: 100px">
-                </textarea>
-            </div>
-            <div class="mb-3">
-                <input type="text" class="form-control" id="url_imagen" >
-            </div>
-            <div class="mb-3">
-                <input type="date" class="form-control" name="" id="fecha">
-                <input type="hidden" name="" id="id">
-            </div>
+                <div class="mb-3">
+                    <label for="text_l" class="fs-3">Título</label>
+                    <input type="text" class="form-control" id="titulo" >
+                </div>
+                <label for="detalle_l" class="fs-3">Detalle</label>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control"  id="detalle"
+                        style="height: 100px">
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="url_img_l" class="fs-3">URL de la imagen</label>
+                    <input type="text" class="form-control" id="url_imagen" >
+                </div>
+                <div class="mb-3">
+                    <label for="fecha_l" class="fs-3">Fecha</label>
+                    <input type="date" class="form-control" name="" id="fecha">
+                    <input type="hidden" name="" id="id">
+                </div>
 
-            <button type="submit" class="btn btn-primary btn-sm">
-                Editar
-            </button>
+                <button type="submit" class="btn btn-primary btn-sm gap-2">
+                    Editar
+                </button>
 
-            <button type="reset" class="btn btn-danger btn-sm">
-                Eliminar
-            </button>
+                <button type="reset" class="btn btn-danger btn-sm gap-2">
+                    Eliminar
+                </button>
 
-        </form>
-        
-        <br>
+            </form>
+            
+            <br>
 
+        </div>
     </div>
 </div>
 
