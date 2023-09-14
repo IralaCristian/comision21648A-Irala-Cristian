@@ -19,7 +19,7 @@ const mostrarPublicaciones = (publicaciones, elementoHtml) => {
     
 }
 
-const obtenerPublicaicones = async () => {
+const obtenerPublicaciones = async () => {
     const response = await fetch('/publicaciones')
     const data = await response.json()
     return data;
@@ -31,7 +31,7 @@ const obtenerPublicaicones = async () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     
-    const publicaciones = await obtenerPublicaicones()
+    const publicaciones = await obtenerPublicaciones()
     const main = document.querySelector('#lista-publicaciones')
     mostrarPublicaciones(publicaciones, main)
 })

@@ -18,6 +18,11 @@ router.get('/admin', (req, res) => {
     res.render('admin')
 })
 
+//vista donde se edita o se elimina una publicación
+router.get('/editar', (req, res) => {
+    res.render('editar')
+})
+
 
 // ====================================================
 //              Rutas para manejar Datos
